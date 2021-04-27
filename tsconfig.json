@@ -17,7 +17,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "mam-core": [
+        "dist/mam-core"
+      ],
+      "mam-core/*": [
+        "dist/mam-core/*"
+      ],
+      "mam-plugin-aperture": [
+        "dist/mam-plugin-aperture"
+      ],
+      "mam-plugin-aperture/*": [
+        "dist/mam-plugin-aperture/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

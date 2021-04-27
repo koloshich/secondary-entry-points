@@ -119,6 +119,76 @@
           }
         }
       }
+    },
+    "mam-core": {
+      "projectType": "library",
+      "root": "projects/mam-core",
+      "sourceRoot": "projects/mam-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mam-core/tsconfig.lib.json",
+            "project": "projects/mam-core/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mam-core/src/test.ts",
+            "tsConfig": "projects/mam-core/tsconfig.spec.json",
+            "karmaConfig": "projects/mam-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mam-core/tsconfig.lib.json",
+              "projects/mam-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mam-plugin-aperture": {
+      "projectType": "library",
+      "root": "projects/mam-plugin-aperture",
+      "sourceRoot": "projects/mam-plugin-aperture/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mam-plugin-aperture/tsconfig.lib.json",
+            "project": "projects/mam-plugin-aperture/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mam-plugin-aperture/src/test.ts",
+            "tsConfig": "projects/mam-plugin-aperture/tsconfig.spec.json",
+            "karmaConfig": "projects/mam-plugin-aperture/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mam-plugin-aperture/tsconfig.lib.json",
+              "projects/mam-plugin-aperture/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "secondary-entry-points"
 }
