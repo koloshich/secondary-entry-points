@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'Aperture',
-    loadChildren: () => import('./modules/aperture-page-client.module').then(module => module.AperturePageClientModule)
+    loadChildren: () => import('./modules/aperture-page.module').then(module => module.ApertureModule)
   }
 ];
 

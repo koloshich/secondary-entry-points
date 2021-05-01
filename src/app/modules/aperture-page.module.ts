@@ -9,6 +9,5 @@ import { AperturePageModule, ApertureRouteModule } from 'mam-plugin-aperture/pag
     ApertureRouteModule,
   ]
 })
-export class AperturePageClientModule {
-
+export class ApertureModule {
 }

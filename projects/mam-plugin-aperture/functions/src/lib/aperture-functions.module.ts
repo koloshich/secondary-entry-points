@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClientFunction, FunctionProviderModule } from 'mam-core';
-import { ApertureFunction } from './aperture-function';
+import { FPSToken } from 'mam-core';
+import { ApertureFunctions } from './function-provider.service';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
+  providers: [{
+    provide: FPSToken,
+    useClass: ApertureFunctions
+  }]
 })
-export class ApertureFunctionsModule implements FunctionProviderModule {
-  getFunction(identifier: string): ClientFunction {
-    return new ApertureFunction();
-  }
+export class ApertureFunctionsModule {
 }

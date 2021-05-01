@@ -1,11 +1,11 @@
-import { ClientFunction, FunctionProviderModule } from 'mam-core';
+import { ClientFunction, FPSToken, FunctionProviderModule } from 'mam-core';
 import { Observable } from 'rxjs';
-import { Injector, NgModuleFactory } from '@angular/core';
+import { Injector, NgModuleFactory, NgModuleRef } from '@angular/core';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { switchMap } from 'rxjs/operators';
 
 const FUNCTIONS = {
-  Aperture: () => import('mam-plugin-aperture/functions').then(m => m.ApertureFunctionsModule),
+  Aperture: () => import('../modules/aperture-functions.module').then(m => m.ApertureFunctions),
 };
 
 export class ClientFunctionWrapper extends ClientFunction {
@@ -27,7 +27,7 @@ export class ClientFunctionWrapper extends ClientFunction {
     super();
   }
 
-  private loadModule(): Promise<FunctionProviderModule> {
+  private loadModule(): Promise<NgModuleRef<FunctionProviderModule>> {
     const importFn = FUNCTIONS[this.identifier];
     if (importFn) {
       return importFn().then((moduleFactory: NgModuleFactory<any>) => {
@@ -40,7 +40,7 @@ export class ClientFunctionWrapper extends ClientFunction {
   private getFunction(): Promise<ClientFunction> {
     if (!this.loadedFunction) {
       return this.loadModule()
-        .then(module => module.getFunction(this.identifier))
+        .then(module => module.injector.get(FPSToken).getFunction(this.identifier))
         .then(func => this.loadedFunction = func);
     }
     return Promise.resolve(this.loadedFunction);

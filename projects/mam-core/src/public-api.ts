@@ -8,3 +8,4 @@ export * from './lib/mam-core.module';
 
 export * from './lib/client-function';
 export * from './lib/function-provider-module';
+export * from './lib/function-provider.service';
