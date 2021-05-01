@@ -9,7 +9,15 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    "paths": {
+      "mam-core": [
+        "dist/mam-core"
+      ],
+      "mam-core/*": [
+        "dist/mam-core/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

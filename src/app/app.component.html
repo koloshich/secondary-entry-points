@@ -18,4 +18,15 @@
   </li>
 </ul>
 
+<div>
+  <a routerLink="/Aperture">Open Aperture page</a>
+</div>
+
+<div>
+  <span>Functions: </span>
+  <ng-container *ngFor="let func of buttons; trackBy: trackByFn">
+    <button>{{func.label}}</button>
+  </ng-container>
+</div>
+
 <router-outlet></router-outlet>
